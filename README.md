@@ -1,1 +1,1 @@
-# DevOps-proxy-server
+# Proxy server for reliability project
