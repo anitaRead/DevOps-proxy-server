@@ -1,12 +1,14 @@
 name: learn-github-actions
-on: [push]
+on:
+  push:
+    branches:
+      - codeDeploy
 jobs:
   deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x, 14.x]
-        mongodb-version: ['4.0', '4.2', '4.4']
+        node-version: [12.x]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
