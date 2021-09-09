@@ -3,7 +3,12 @@ const app = express();
 
 
 app.get('/', function (req, res) {
-  res.send('Team 2 is the best!');
+  url = "http://www.google.com";
+  res.redirect(url);
+  console.log(res.statusCode);
+  if(res.statusCode === 500) {
+    res.redirect(url);
+  }
 });
 
 app.listen(3000, function () {
