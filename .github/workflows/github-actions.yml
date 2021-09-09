@@ -2,7 +2,7 @@ name: github-actions
 on:
   push:
     branches:
-      - codeDeploy
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
