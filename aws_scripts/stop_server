@@ -1,8 +1,8 @@
-# #!/bin/bash
-# NVM_DIR=/home/ec2-user/.nvm
-# . $NVM_DIR/nvm.sh
-# nvm use 12.14.1
+#!/bin/bash
+NVM_DIR=/home/ec2-user/.nvm
+. $NVM_DIR/nvm.sh
+nvm use 12.14.1
 
-# source /home/ec2-user/.bash_profile
-# cd /home/ec2-user/signal/
-# pm2 delete 0
+source /home/ec2-user/.bash_profile
+cd /home/ec2-user/signal/
+pm2 delete 0
