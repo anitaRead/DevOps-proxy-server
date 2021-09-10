@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
   }).on('error', function(e) {
     console.error(e);
   });
-  res.send('Team 2 is the best!!!');
+  res.send('Team 2 is the best!');
 });
 
 app.listen(process.env.PORT || '80', function () {
