@@ -2,4 +2,5 @@
 source /home/ec2-user/.bash_profile
 cd /home/ec2-user/signal/
 # ~/.nvm/versions/node/v16.7.0/bin/
+sudo su
 pm2 start app.js
