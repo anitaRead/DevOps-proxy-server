@@ -5,5 +5,5 @@ nvm use 12.14.1
 
 source /home/ec2-user/.bash_profile
 cd /home/ec2-user/signal/
-sudo su
+# sudo su
 pm2 stop app
