@@ -29,13 +29,13 @@ jobs:
         rm -rf node_modules
         rm -rf node_modules devops-proxy-server.zip
         zip -r devops-proxy-server.zip .
-        aws s3 cp ./devops-proxy-server.zip s3://team2-proxy/
+        aws s3 cp ./devops-proxy-server.zip s3://team2-proxy
    - name: AWS Create Deployment
       run: |
          aws deploy create-deployment \
-            --application-name Team2App \
-            --deployment-config-name CodeDeployDefault.OneAtATime \
-            --deployment-group-name team2dg \
-            --file-exists-behavior OVERWRITE \
-            --s3-location bucket=team2-proxy-s3bucket,key=devops-proxy-server.zip,bundleType=zip
+          --application-name Team2App \
+          --deployment-config-name CodeDeployDefault.OneAtATime \
+          --deployment-group-name team2dg \
+          --file-exists-behavior OVERWRITE \
+          --s3-location bucket=team2-proxy-s3bucket,key=devops-proxy-server.zip,bundleType=zip
 
