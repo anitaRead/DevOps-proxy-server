@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 // const https = require('https');
 const http = require('http');
-const request = require('request')
 
 const url = 'http://team-2-reliability-server.mkrs.link';
 
