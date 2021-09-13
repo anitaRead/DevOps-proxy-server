@@ -6,20 +6,23 @@ const http = require('http');
 const url = 'http://team-2-reliability-server.mkrs.link';
 
 
-app.get('/', function (req, res) {
+app.get('/', function (req, response) {
   http.get(url, function(res) { 
-  
+    console.log('I am inside the http request');
+
     if(res.statusCode !== 200) {
       console.log('Inside conditional');
-      http.get(url);
+      http.get(url, function(res) {
+        console.log('Second http request');
+        response.redirect(url);
+      });
     } else {
       console.log('Status code: ', res.statusCode);
+      response.redirect(url);
     }
+    
+  })
   
-  }).on('error', function(e) {
-    console.error(e);
-  });
-  res.send('Team 2 is the best!!!');
 });
 
 app.listen(process.env.PORT || '80', function () {

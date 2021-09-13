@@ -19,8 +19,10 @@
   "homepage": "https://github.com/anitaRead/DevOps-proxy-server#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "pm2": "^5.1.1",
     "http": "^0.0.1-security",
-    "https": "^1.0.0"
+    "http-proxy-middleware": "^2.0.1",
+    "https": "^1.0.0",
+    "morgan": "^1.10.0",
+    "pm2": "^5.1.1"
   }
 }
