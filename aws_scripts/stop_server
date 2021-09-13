@@ -1,5 +1,5 @@
 #!/bin/bash
-NVM_DIR=/home/ec2-user/.nvm
+NVM_DIR=/root/.nvm
 . $NVM_DIR/nvm.sh
 nvm use 12.14.1
 
