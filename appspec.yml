@@ -11,12 +11,12 @@ permissions:
 hooks:
   AfterInstall:
     - location: aws_scripts/install_dependencies
-      timeout: 300
+      # timeout: 300
       runas: ec2-user
 
   ApplicationStop:
     - location: aws_scripts/stop_server
-      timeout: 300
+      # timeout: 300
       runas: ec2-user
       
   ApplicationStart:
