@@ -10,12 +10,17 @@ app.get('/', function (req, response) {
   http.get(url, function(res) { 
     console.log('I am inside the http request');
 
-    if(res.statusCode !== 200) {
+    if(res.statusCode === 200) {
       console.log('Inside conditional');
-      http.get(url, function(res) {
+
+      http.get(url, function(secondRes) {
         console.log('Second http request');
+        if (secondRes.statusCode === 200) {
+          console.log(`Second try got a status code of ${res.statusCode}`);
+        }
         response.redirect(url);
       });
+
     } else {
       console.log('Status code: ', res.statusCode);
       response.redirect(url);
