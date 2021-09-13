@@ -32,7 +32,7 @@ jobs:
         aws s3 cp ./devops-proxy-server.zip s3://team2-proxy/
      - name: AWS Create Deployment
       run: |
-        aws deploy create-deployment \
+          --aws deploy create-deployment \
           --application-name  devops-proxy-server \
           --deployment-config-name CodeDeployDefault.OneAtATime \
           --deployment-group-name team2dg \
