@@ -30,6 +30,34 @@ app.get('/*', async (req, res) => {
   res.status(upstreamResponse.status).send(await upstreamResponse.text())
 })
 
+app.post('/*', async (req, res) => {
+  let request = req.originalUrl
+  console.log(`:: POST ${request}`)
+
+  let attemptsLeft = 3;
+  let upstreamResponse;
+
+  while (attemptsLeft > 0) {
+    let upstream = `http://${TARGET_SERVER}${request}`;
+    console.log(`:: Attempt ${2 - attemptsLeft}: ${upstream}`)
+    attemptsLeft = attemptsLeft - 1
+    upstreamResponse = await fetch(upstream, {
+      headers: { 'Authorization': req.header('Authorization') }
+    })
+    if (upstreamResponse.ok) {
+      let text = await upstreamResponse.text()
+      console.log(res);
+      res.header('Content-Type', upstreamResponse.headers.post('content-type'))
+         .status(upstreamResponse.status)
+         .send(text)
+      console.log(":: Successful!")
+      return
+    }
+  }
+  console.log(`:: Failed POST ${request}`)
+  res.status(upstreamResponse.status).send(await upstreamResponse.text())
+})
+
 
 app.listen(process.env.PORT || "80", function () {
   console.log('Listening on port 80!');
