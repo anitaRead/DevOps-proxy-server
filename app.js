@@ -22,7 +22,7 @@ app.get('/*', async (req, res) => {
       res.header('Content-Type', upstreamResponse.headers.get('content-type'))
          .status(upstreamResponse.status)
          .send(text)
-      console.log(":: Successful!")
+      console.log(":: Successful GET!")
       return
     }
   }
@@ -49,7 +49,7 @@ app.post('/*', async (req, res) => {
       res.header('Content-Type', upstreamResponse.headers.get('content-type'))
          .status(upstreamResponse.status)
          .send(text)
-      console.log(":: Successful!")
+      console.log(":: Successful POST!")
       return
     }
   }
@@ -76,7 +76,7 @@ app.patch('/*', async (req, res) => {
       res.header('Content-Type', upstreamResponse.headers.get('content-type'))
          .status(upstreamResponse.status)
          .send(text)
-      console.log(":: Successful!")
+      console.log(":: Successful PATCH!")
       return
     }
   }
@@ -103,7 +103,7 @@ app.delete('/*', async (req, res) => {
       res.header('Content-Type', upstreamResponse.headers.get('content-type'))
          .status(upstreamResponse.status)
          .send(text)
-      console.log(":: Successful!")
+      console.log(":: Successful DELETE!")
       return
     }
   }
