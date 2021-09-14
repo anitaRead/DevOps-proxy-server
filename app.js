@@ -1,9 +1,7 @@
-
 const express = require('express');
 const app = express();
-//  const fetch = require('node-fetch')
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const TARGET_SERVER = "http://team-2-reliability-server.mkrs.link"
+const TARGET_SERVER = "team-2-reliability-server.mkrs.link"
 
 app.get('/*', async (req, res) => {
   let request = req.originalUrl
@@ -33,27 +31,8 @@ app.get('/*', async (req, res) => {
 })
 
 
-app.listen(process.env.PORT || '80', function () {
+app.listen(process.env.PORT || "80", function () {
   console.log('Listening on port 80!');
 });
 
-  // // const https = require('https');
-  // const http = require('http');
   
-  // const url = 'http://team-2-reliability-server.mkrs.link';
-  
-  
-  // app.all('*', function (req, res) {
-  //   http.get(url)
-  //   .on('response', function(response) {
-  //     console.log(response.statusCode)
-  //     console.log(response)
-  //   })
-  
-  
-    
-  //   .on('error', function(e) {
-  //     console.error(e);
-  //   });
-  //   res.send('Team 2 is the best!');
-  // });
