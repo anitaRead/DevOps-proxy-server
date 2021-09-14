@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
+const fetch = require('node-fetch')
 // const https = require('https');
 const http = require('http');
 
 const url = 'http://team-2-reliability-server.mkrs.link';
 
 
-app.all('/*', function (req, res) {
+app.all('*', function (req, res) {
   http.get(url)
   .on('response', function(response) {
     console.log(response.statusCode)
