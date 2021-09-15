@@ -47,8 +47,10 @@ app.post('/*', async (req, res) => {
     attemptsLeft = attemptsLeft - 1
     upstreamResponse = await fetch(upstream, {
       method: 'post',
-	    body: req.body,
-      headers: { 'Authorization': req.header('Authorization') }
+	    body: JSON.stringify(req.body),
+      headers: { 'Authorization': req.header('Authorization'),
+                  'Content-type': 'application/json' 
+                }
     })
     console.log('**************************RES************************************');
     console.log(upstreamResponse);
