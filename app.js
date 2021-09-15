@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const TARGET_SERVER = "team-2-reliability-server.mkrs.link"
+const TARGET_SERVER = "team-2-reliability-server.mkrs.link";
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 // app.get('/*', async (req, res) => {
 //   let request = req.originalUrl
@@ -43,11 +47,13 @@ app.post('/*', async (req, res) => {
     attemptsLeft = attemptsLeft - 1
     upstreamResponse = await fetch(upstream, {
       method: 'post',
-	    body: req.params,
+	    body: req.body,
       headers: { 'Authorization': req.header('Authorization') }
     })
-    console.log('**************************UPSTREAM.OK************************************');
-    console.log(upstreamResponse.ok);
+    console.log('**************************REQ.BODY************************************');
+    console.log(req.body);
+    console.log('**************************REQ.BODY************************************');
+
     if (upstreamResponse.ok) {
       let text = await upstreamResponse.text()
       res.header('Content-Type', upstreamResponse.headers.get('content-type'))
