@@ -46,6 +46,7 @@ app.post('/*', async (req, res) => {
 	    body: req.params,
       headers: { 'Authorization': req.header('Authorization') }
     })
+    console.log('**************************UPSTREAM.OK************************************');
     console.log(upstreamResponse.ok);
     if (upstreamResponse.ok) {
       let text = await upstreamResponse.text()
