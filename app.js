@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const TARGET_SERVER = "team-2-reliability-server.mkrs.link";
+const TARGET_SERVER = "ec2-3-9-12-172.eu-west-2.compute.amazonaws.com";
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
